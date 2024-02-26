@@ -1,0 +1,81 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+const { title, instructions, author, date } = frontmatter;
+console.log(instructions);
+---
+
+<Layout title="Portafolio de tareas - Campos Zeron Salvador">
+  <header class="mx-auto my-[50px]">
+    <h1 class="mb-6 text-5xl text-center">
+      <span class="text-gradient text-pretty">{title}</span>
+      <br />
+      <small class="text-sm">{author} &bull; {date}</small>
+    </h1>
+    <p class="instructions text-balance">
+      <strong>{instructions[0]}</strong>
+      <br />
+      {
+        instructions.slice(1).map((instruction) => (
+          <code>
+            {instruction}
+            <br />
+          </code>
+        ))
+      }
+    </p>
+    <p class="text-center">
+      <ul role="list" class="link-card-grid"></ul>
+    </p>
+    <slot />
+  </header>
+
+  <style>
+    header {
+      padding: 1rem;
+      width: 800px;
+      max-width: calc(100% - 2rem);
+      color: white;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .text-gradient {
+      background-image: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 400%;
+      background-position: 0%;
+    }
+    .instructions {
+      margin-left: calc(50% - 40%);
+      width: 80%;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(var(--accent-light), 25%);
+      background: linear-gradient(
+        rgba(var(--accent-dark), 66%),
+        rgba(var(--accent-dark), 33%)
+      );
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .instructions code {
+      font-size: 0.6em;
+      font-weight: bold;
+      background: rgba(var(--accent-dark), 12%);
+      color: rgb(var(--accent-light));
+      border-radius: 4px;
+      padding: 0.3em 0.4em;
+    }
+    .instructions strong {
+      color: rgb(var(--accent-light));
+    }
+    .link-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+      gap: 2rem;
+      padding: 0;
+    }
+  </style>
+</Layout>

@@ -1,0 +1,70 @@
+---
+import HomeworkCard from "../../components/HomeworkCard.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const homeworks = (await Astro.glob("./*.mdx")) || []; // Astro.glob({}) did not return any matching files.
+---
+
+<Layout title="Portafolio de tareas - Campos Zeron Salvador">
+  <main class="mx-auto my-[50px]">
+    <h1 class="mb-6 text-5xl text-center">
+      <span class="text-gradient">Elementos de probabilidad</span>
+    </h1>
+    <p class="instructions text-balance text-center">
+      En esta página encontrarás una serie de tareas que he realizado en el
+      curso de Elementos de probabilidad. Si tienes alguna duda o comentario
+      sobre alguna de las tareas, no dudes en contactarme.
+    </p>
+    <p class="text-center">
+      <ul role="list" class="link-card-grid">
+        {homeworks.map((homework) => <HomeworkCard homework={homework} />)}
+      </ul>
+      <style>
+        main {
+          padding: 1rem;
+          width: 800px;
+          max-width: calc(100% - 2rem);
+          color: white;
+          font-size: 20px;
+          line-height: 1.6;
+        }
+
+        .text-gradient {
+          background-image: var(--accent-gradient);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-size: 400%;
+          background-position: 0%;
+        }
+        .instructions {
+          font-size: 1.2rem;
+          margin-bottom: 2rem;
+          border: 1px solid rgba(var(--accent-light), 25%);
+          background: linear-gradient(
+            rgba(var(--accent-dark), 66%),
+            rgba(var(--accent-dark), 33%)
+          );
+          padding: 1.2rem;
+          border-radius: 8px;
+        }
+        .instructions code {
+          font-size: 0.8em;
+          font-weight: bold;
+          background: rgba(var(--accent-light), 12%);
+          color: rgb(var(--accent-light));
+          border-radius: 4px;
+          padding: 0.3em 0.4em;
+        }
+        .instructions strong {
+          color: rgb(var(--accent-light));
+        }
+        .link-card-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+          gap: 2rem;
+          padding: 0;
+        }
+      </style>
+    </p>
+  </main>
+</Layout>

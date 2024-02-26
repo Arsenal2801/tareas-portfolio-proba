@@ -1,0 +1,112 @@
+---
+layout: "../../layouts/HomeworkLayout.astro"
+fileName: tarea_1-1
+title: Análisis combinatorio, conteo y diagramas de árbol
+author: Campos Zeron Salvador
+date: 25/02/2024
+instructions:  [
+    "Instrucciones:",
+    "1. Resuelva 20 de los siguientes ejercicios: utilice bolígrafo y hojas blancas.",
+    "2. Redacte cada problema y a continuación la solución.",
+    "3. Cada hoja debe llevar su nombre y firma.",
+    "4. Escanee y suba un solo archivo pdf al rubro cprrespondiente de la
+    plataforma TEAMS.",
+    "5. No se evaluarán tareas enviadas por otros medios, ni se aceptarán tareas
+    con retrazo.",
+  ]
+---
+import LaTeX from "../../components/LaTeX.astro"
+
+## Ejercicio 1
+<p class="text-base my-1 text-pretty">En un estudio médico, los pacientes se clasifican en 8 formas diferentes
+de acuerdo con su tipo de sangre: AB+, AB−, A+, A−, B+, B−, O+ u O−,
+y su presión sanguínea (baja, normal o alta). Encuentre el número de
+formas para clasificar a un paciente.</p>
+> **Solución:**
+
+<LaTeX formula="\text{hay 8 tipos de sangre} = n_1 \\ \text{hay 3 tipos de presion} = n_2 \\ \text{Por el P.F.C:} \\ n_1 \cdot n_2 = 8 \cdot 3 = 24 \\ \therefore \text{Existen 24 formas de clasificar al paciente}"/>
+
+<br/>
+## Ejercicio 2
+<p class="text-base my-1 text-pretty">¿Cuántas permutaciones diferentes pueden hacerse con las letras de la
+palabra infinito?</p>
+> **Solución:**
+
+<LaTeX formula="\text{infinito tiene 8 letras} \\ \text{tenemos que: } 3i,2n,1f,1t,1o \\ \frac{8!}{3!2!1!1!} = 3360 \text{ permutaciones}"/>
+
+<br/>
+## Ejercicio 3
+<p class="text-base my-1 text-pretty">¿Cuántos comités diferentes de 3 hombres y 4 mujeres se pueden formar
+de un conjunto de 8 hombres y 6 mujeres?</p>
+> **Solución:**
+
+<LaTeX formula="\text{comités de 3 hombres} = \binom{8}{3} = 56 \\  \text{comités de 4 mujeres} = \binom{6}{4} = 15 \\ \text{Por el P.F.C:} \\ 56 \cdot 15 = 840 \text{ comités diferentes}"/>
+
+<br/>
+## Ejercicio 4
+<p class="text-base my-1 text-pretty">  Una estantería contiene 6 compartimentos separados. ¿De cuántas
+maneras se pueden colodar 4 canicas idénticas en los compartimentos?.
+Desarrolle el problema si hay n compartimentos y r canicas. Este problema surge en física en relación con las estadística de Bose-Einstein. </p>
+> **Solución:**
+
+<p class="text-base my-1 text-pretty">Para el caso general:</p>
+<LaTeX formula="\text{Por el P.F.C:} \\ \binom{n+r-1}{r} = \binom{n+r-1}{n-1} = \frac{(n+r-1)!}{(n-1)!r!}"/>
+<p class="text-base my-1 text-pretty">Para el caso particular:</p>
+<LaTeX formula="\text{Por el P.F.C:} \\ \binom{n+r-1}{r} = \binom{6+4-1}{4} = \binom{9}{4} = 126 \text{ maneras diferentes}"/>
+
+<br/>
+## Ejercicio 5
+<p class="text-base my-1 text-pretty">¿Cuántos subconjuntos que contengan al menos un elemento se pueden
+formar de un conjunto de 100 elementos?</p>
+> **Solución:**
+
+<LaTeX formula="\text{Por el P.F.C:} \\ 2^{100} - 1 = 1267650600228229401496703205375 \text{ subconjuntos diferentes}"/>
+<p class="text-base my-1 text-pretty">Explicacion:</p>
+<p class="text-base my-1 text-pretty">Se buscan todos los subconjuntos posibles en 100 números y se descarta el vacio por lo que se resta uno y por teoria de conjuntos sabemos que para calcular n subconjuntos se utiliza el conjunto potencia que se escribe como 2^n</p>
+
+<br/>
+## Ejercicio 6
+<p class="text-base my-1 text-pretty">Un mecanismo complejo puede fallar en 15 partes diferentes. Si falla en
+tres partes ¿de cuántas maneras puede suceder?</p>
+> **Solución:**
+
+<LaTeX formula="\text{Por el P.F.C:} \\ \binom{15}{3} = \frac{15!}{3!(15-3)!}=\frac{15\cdot14\cdot13\cdot12!}{3!12!}=\dots\\\dots = \frac{15\cdot14\cdot13}{3!} = \frac{2730}{6} = 455 \text{ maneras de que falle}"/>
+
+<br/>
+## Ejercicio 7
+<p class="text-base my-1 text-pretty">¿De cuántas maneras diferentes se pueden ordenar 7 libros en una biblioteca si a) cualquier orden es posible, b) tres libros en particular
+deben quedar siempre juntos, c) dos libros en particular deben quedar
+siempre en las esquinas. </p>
+> **Solución:**
+
+<p class="text-base my-1 text-pretty">a) Cualquier orden es posible:</p>
+<LaTeX formula="7! = 5040 \text{ maneras diferentes}"/>
+
+<p class="text-base my-1 text-pretty">b) Tres libros en particular deben quedar siempre juntos:</p>
+<LaTeX formula="5! \cdot 3! = 720 \text{ maneras diferentes}"/>
+
+<p class="text-base my-1 text-pretty">c) Dos libros en particular deben quedar siempre en las esquinas:</p>
+<LaTeX formula="5! \cdot 2! \cdot 2! = 240 \text{ maneras diferentes}"/>
+
+<br/>
+## Ejercicio 8
+<p class="text-base my-1 text-pretty">Cuatro matrimonios compraron 8 lugares para un concierto. ¿En cuántas
+formas diferentes pueden sentarse<br/>a) sin restricciones?<br/>b) si se sientan por parejas?<br/>c) si todos los hombres se sientan juntos a la derecha de todas las mujeres?</p>
+> **Solución:**
+
+<p class="text-base my-1 text-pretty">a) Sin restricciones:</p>
+<LaTeX formula="8! = 40320 \text{ maneras diferentes}"/>
+
+<p class="text-base my-1 text-pretty">b) Si se sientan por parejas:</p>
+<LaTeX formula="4! \cdot 2! \cdot 2! = 48 \text{ maneras diferentes}"/>
+
+<p class="text-base my-1 text-pretty">c) Si todos los hombres se sientan juntos a la derecha de todas las mujeres:</p>
+<LaTeX formula="4! \cdot 4! = 576 \text{ maneras diferentes}"/>
+
+<br/>
+## Ejercicio 9
+<p class="text-base my-1 text-pretty">¿Para cuáles valores de n es n+1 P 3 = n P 4?</p>
+> **Solución:**
+
+<LaTeX formula="_{n + 1}P_3 = \frac{(n+1)!}{(n+1-3)!} = \frac{(n+1)!}{(n-2)!} \\ \text{ }_nP_4 = \frac{n!}{(n-4)!} \\ \frac{(n+1)!}{(n-2)!} = \frac{n!}{(n-4)!} \\\frac{(n+1)(n)(n-1)(n-2)!}{(n-2)!} = \frac{n!}{(n-4)!}\\ (n+1)(n)(n-1) =\frac{n!}{(n-4)!}\\"/>
+
