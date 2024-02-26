@@ -2,7 +2,6 @@
 import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
 const { title, instructions, author, date } = frontmatter;
-console.log(instructions);
 ---
 
 <Layout title="Portafolio de tareas - Campos Zeron Salvador">
@@ -29,7 +28,6 @@ console.log(instructions);
     </p>
     <slot />
   </header>
-
   <style>
     header {
       padding: 1rem;
